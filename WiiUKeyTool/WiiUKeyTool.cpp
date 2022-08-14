@@ -15,6 +15,7 @@ map<string, string> read_key_file(char* file_path, char delimiter, map<string, s
 		if (line == "") continue;
 		key = line.substr(0, line.find(delimiter));
 		comment = line.substr(line.find(delimiter), line.length());
+		boost::to_lower(key);
 		trim(key);
 		trim(comment);
 		if (key != "" && storage.count(key) == 0) {
